@@ -1,0 +1,28 @@
+{
+  "disclosure-layout": {
+    "component": "DisclosureLayout",
+    "render": "client",
+    "composition": "children"
+  },
+  "disclosure-layout-group": {
+    "component": "DisclosureLayoutGroup",
+    "render": "client",
+    "composition": "children"
+  },
+  "disclosure-trigger": {
+    "component": "DisclosureTrigger",
+    "composition": "children"
+  },
+  "disclosure-trigger-group": {
+    "component": "DisclosureTriggerGroup",
+    "composition": "children"
+  },
+  "disclosure-state-indicator": {
+    "component": "DisclosureStateIndicator",
+    "composition": "children"
+  },
+  "disclosure-content": {
+    "component": "DisclosureContent",
+    "composition": "children"
+  }
+}
