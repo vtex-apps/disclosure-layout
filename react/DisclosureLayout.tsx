@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { DisclosureLayout, DisclosureLayoutProps } from '@vtex/disclosure'
 
-const Group: FC<DisclosureLayoutProps> = ({
+const Layout: FC<DisclosureLayoutProps> = ({
   initialVisibility,
   animated,
   children,
@@ -13,4 +13,6 @@ const Group: FC<DisclosureLayoutProps> = ({
   )
 }
 
-export default Group
+Layout.displayName = 'DisclosureLayout'
+
+export default Layout

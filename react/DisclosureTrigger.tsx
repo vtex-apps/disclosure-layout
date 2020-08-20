@@ -12,7 +12,7 @@ interface Props extends Omit<DisclosureTriggerProps, 'htmlProps'> {
 
 const CSS_HANDLES = ['trigger'] as const
 
-const TriggerGroup: FC<Props> = ({ as, children, show, hide }) => {
+const Trigger: FC<Props> = ({ as, children, show, hide }) => {
   const handles = useCssHandles(CSS_HANDLES)
   const state = useDisclosureState()
   const visible = state?.visible
@@ -34,4 +34,6 @@ const TriggerGroup: FC<Props> = ({ as, children, show, hide }) => {
   )
 }
 
-export default TriggerGroup
+Trigger.displayName = 'DisclosureTrigger'
+
+export default Trigger

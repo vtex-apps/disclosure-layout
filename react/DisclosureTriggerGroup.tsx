@@ -39,4 +39,6 @@ const TriggerGroup: FC<Props> = ({ as, show, hide, children }) => {
   )
 }
 
+TriggerGroup.displayName = 'DisclosureTriggerGroup'
+
 export default TriggerGroup

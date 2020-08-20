@@ -12,7 +12,7 @@ interface Props extends Omit<DisclosureContentProps, 'htmlProps'> {
 
 const CSS_HANDLES = ['content'] as const
 
-const TriggerGroup: FC<Props> = ({ as, children }) => {
+const Content: FC<Props> = ({ as, children }) => {
   const handles = useCssHandles(CSS_HANDLES)
   const state = useDisclosureState()
   const visible = state?.visible
@@ -34,4 +34,6 @@ const TriggerGroup: FC<Props> = ({ as, children }) => {
   )
 }
 
-export default TriggerGroup
+Content.displayName = 'DisclosureContent'
+
+export default Content

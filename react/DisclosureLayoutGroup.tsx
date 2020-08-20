@@ -12,4 +12,6 @@ const Group: FC<DisclosureLayoutGroupProps> = ({ maxVisible, children }) => {
   )
 }
 
+Group.displayName = 'DisclosureLayoutGroup'
+
 export default Group
