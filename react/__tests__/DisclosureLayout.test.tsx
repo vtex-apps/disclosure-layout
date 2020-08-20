@@ -14,9 +14,11 @@ test('should change the CSS Handles', async () => {
   )
 
   const content = getByText('Content')
+
   expect(content).toHaveClass('content--hidden')
 
   const trigger = getByText('Trigger')
+
   expect(trigger).toHaveClass('trigger--hidden')
 
   trigger.click()
@@ -34,6 +36,7 @@ test('should render hide and show props', async () => {
   )
 
   const content = getByText('Content')
+
   expect(content).not.toBeVisible()
 
   getByText('Show').click()
@@ -52,6 +55,7 @@ test('should show if initialVisibility is visible', async () => {
   )
 
   const content = getByText('Content')
+
   expect(content).toBeVisible()
 
   getByText('Trigger').click()
