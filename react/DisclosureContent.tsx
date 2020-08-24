@@ -2,7 +2,7 @@ import React, { FC, useMemo } from 'react'
 import {
   DisclosureContent,
   DisclosureContentProps,
-  useDisclosureState,
+  useDisclosure,
 } from '@vtex/disclosure'
 import { useCssHandles, applyModifiers } from 'vtex.css-handles'
 
@@ -14,7 +14,7 @@ const CSS_HANDLES = ['content'] as const
 
 const Content: FC<Props> = ({ as, children }) => {
   const handles = useCssHandles(CSS_HANDLES)
-  const state = useDisclosureState()
+  const { state } = useDisclosure()
   const visible = state?.visible
 
   const htmlProps = useMemo(

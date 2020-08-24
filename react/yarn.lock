@@ -1512,10 +1512,10 @@
   resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.8.0.tgz#8b63ab7f1aa5321248aad5ac890a485656dcea4d"
   integrity sha512-te5lMAWii1uEJ4FwLjzdlbw3+n0FZNOvFXHxQDKeT0dilh7HOzdMzV2TrJVUzq8ep7J4Na8OUYPRLSQkJHAlrg==
 
-"@vtex/disclosure@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@vtex/disclosure/-/disclosure-0.1.4.tgz#1edb077159cdd753706b3452fc160fa7ca8b087c"
-  integrity sha512-kREAcGDxLx+9AMQ/yi2WrhySscBlG+Wqoso4ovlhC/rwF1MPNy9Dp5EDSNIszd/bxw6k0ro7JWV5t4GL3TNGnw==
+"@vtex/disclosure@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@vtex/disclosure/-/disclosure-0.1.5.tgz#05aabf4d151c766747a8675092daa89e6cedc9da"
+  integrity sha512-7PtAwQafRob3r4mNspQtPOgtqdd09DNZnGqElNLhBgOu2PyWIFznyh4ateJADembT9qggw/LuQP20NaVY/Y6PQ==
   dependencies:
     reakit "^1.2.3"
 
@@ -4860,12 +4860,7 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@3.8.3:
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
-  integrity sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
-
-typescript@^3.9.7:
+typescript@^3.9.6, typescript@^3.9.7:
   version "3.9.7"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
   integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==

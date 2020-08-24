@@ -2,7 +2,7 @@ import React, { FC, useMemo } from 'react'
 import {
   DisclosureTrigger,
   DisclosureTriggerProps,
-  useDisclosureState,
+  useDisclosure,
 } from '@vtex/disclosure'
 import { useCssHandles, applyModifiers } from 'vtex.css-handles'
 
@@ -14,7 +14,7 @@ const CSS_HANDLES = ['trigger'] as const
 
 const Trigger: FC<Props> = ({ as, children, show, hide }) => {
   const handles = useCssHandles(CSS_HANDLES)
-  const state = useDisclosureState()
+  const { state } = useDisclosure()
   const visible = state?.visible
 
   const htmlProps = useMemo(
