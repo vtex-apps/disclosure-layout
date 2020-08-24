@@ -1,12 +1,10 @@
 {
   "disclosure-layout": {
     "component": "DisclosureLayout",
-    "render": "client",
     "composition": "children"
   },
   "disclosure-layout-group": {
     "component": "DisclosureLayoutGroup",
-    "render": "client",
     "composition": "children"
   },
   "disclosure-trigger": {
