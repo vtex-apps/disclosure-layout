@@ -1,91 +1,176 @@
-📢 Use this project, [contribute](https://github.com/{OrganizationName}/{AppName}) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
+📢 Use this project, [contribute](https://github.com/vtex-apps/disclosure-layout) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
 
-# APP NAME
+# Disclosure Layout
 
 <!-- DOCS-IGNORE:start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- DOCS-IGNORE:end -->
 
-Under the app's name, you should explain the topic, giving a **brief description** of its **functionality** in a store when installed.
-
-Next, **add media** (either an image of a GIF) with the rendered components, so that users can better understand how the app works in practice. 
-
 ![Media Placeholder](https://user-images.githubusercontent.com/52087100/71204177-42ca4f80-227e-11ea-89e6-e92e65370c69.png)
 
-## Configuration 
+## Configuration
 
-In this section, you first must **add the primary instructions** that will allow users to use the app's blocks in their store, such as:
+1. Adding the app as a theme dependency in the `manifest.json` file:
 
-1. Adding the app as a theme dependency in the `manifest.json` file;
-2. Declaring the app's main block in a given theme template or inside another block from the theme.
+```json
+  "dependencies": {
+    "vtex.disclosure-layout": "1.x"
+  }
+```
 
-Remember to add a table with all blocks exported by the app and their descriptions. You can verify an example of it on the [Search Result documentation](https://vtex.io/docs/components/all/vtex.search-result@3.56.1/). 
+Now, you are able to use all the blocks exported by the `disclosure-layout` app. Check out the full list below:
 
-Next, add the **props table** containing your block's props. 
+| Block name                   | Description                                                                                                                                                                                                                                                  |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `disclosure-layout`          | ![https://img.shields.io/badge/-Mandatory-red](https://img.shields.io/badge/-Mandatory-red) Layout block that enables you to build the disclosure using its 3 children blocks: `disclosure-trigger`, `disclosure-content`, and `disclosure-state-indicator`. |
+| `disclosure-trigger`         | Use this block to wrap the blocks that when clicked will toggle the visibility of the `disclosure-content`.                                                                                                                                                  |
+| `disclosure-content`         | Use this block to wrap the blocks that will render the content.                                                                                                                                                                                              |
+| `disclosure-state-indicator` | Helper block to render chevron or other UI elements that change when the disclosure it's open or closed. .                                                                                                                                                   |
+| `disclosure-layout-group`    | Use this block to wrap many `disclosure-layouts`. This block will control the visibility of them, making it possible to have only one `disclosure-layout` open at a time.                                                                                    |
+| `disclosure-trigger-group`   | This block triggers the visibility of all the `disclosure-layouts` inside the `disclosure-layout-group`.                                                                                                                                                     |
 
-If the app exports more than one block, create several tables - one for each block. For example:
+2. Examples:
 
-### `block-1` props
+### Simple
 
-| Prop name    | Type            | Description    | Default value                                                                                                                               |
-| ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | 
-| `XXXXX`      | `XXXXXX`       | XXXXXXXX         | `XXXXXX`        |
+```json
+{
+  "disclosure-layout#simple": {
+    "children": ["disclosure-trigger#simple", "disclosure-content#simple"]
+  },
+  "disclosure-trigger#simple": {
+    "children": ["rich-text#question"]
+  },
+  "disclosure-content#simple": {
+    "children": ["rich-text#answer"]
+  },
+  "rich-text#question": {
+    "props": {
+      "text": "How can I change my shipping address?"
+    }
+  },
+  "rich-text#answer": {
+    "props": {
+      "text": "Call us at the number (212) 1234-1234"
+    }
+  }
+}
+```
 
+### Using group
 
-### `block-2` props
+```json
+{
+  "disclosure-layout-group#group": {
+    "children": ["disclosure-layout#first", "disclosure-layout#second"]
+  },
 
-| Prop name    | Type            | Description    | Default value                                                                                                                               |
-| ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | 
-| `XXXXX`      | `XXXXXX`       | XXXXXXXX         | `XXXXXX`        |
+  "disclosure-layout#first": {
+    "children": ["disclosure-trigger#first", "disclosure-content#first"]
+  },
+  "disclosure-trigger#first": {
+    "children": ["rich-text#question1"]
+  },
+  "disclosure-content#first": {
+    "children": ["rich-text#answer1"]
+  },
+  "rich-text#question1": {
+    "props": {
+      "text": "How can I change my shipping address?"
+    }
+  },
+  "rich-text#answer1": {
+    "props": {
+      "text": "Call us at the number (212) 1234-1234."
+    }
+  },
 
-Prop types are: 
+  "disclosure-layout#second": {
+    "children": ["disclosure-trigger#first", "disclosure-content#first"]
+  },
+  "disclosure-trigger#second": {
+    "children": ["rich-text#question1"]
+  },
+  "disclosure-content#second": {
+    "children": ["rich-text#answer1"]
+  },
+  "rich-text#question2": {
+    "props": {
+      "text": "How can I track my order?"
+    }
+  },
+  "rich-text#answer2": {
+    "props": {
+      "text": "After logging into your account, you can find this info at the link Orders."
+    }
+  }
+}
+```
 
-- `string` 
-- `enum` 
-- `number` 
-- `boolean` 
-- `object` 
-- `array` 
+### `disclosure-layout` props
 
-When documenting a prop whose type is `object` or `array` another prop table will be needed. You can create it following the example below:
+| Prop name           | Type                  | Description                                                                                                                                                                                     | Default value                                  |
+| ------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| `initialVisibility` | `enum`                | `visible` to have it's content initially open, or `hidden` to be hidden.                                                                                                                        | `hidden`                                       |
+| `animated`          | `boolean` or `number` | To perform animations, you must set this to `true`. It'll enable additional data-\* attributes on it's content which you can use as selectors in CSS. It will also ensure that the element will | only get hidden when the transition has ended. | `false` |
 
-- `propName` object:
+### `disclosure-trigger` props
 
-| Prop name    | Type            | Description    | Default value                                                                                                                               |
-| ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | 
-| `XXXXX`      | `XXXXXX`       | XXXXXXXX         | `XXXXXX`        |
+| Prop Name    | Type     | Description                                                                                          | Default value |
+| ------------ | -------- | ---------------------------------------------------------------------------------------------------- | ------------- |
+| `show`       | `Block`  | This block will be rendered when prompt to show the content                                          | `undefined`   |
+| `hide`       | `Block`  | This block will be rendered when prompt to hide the content                                          | `undefined`   |
+| `children`   | `Block`  | This block will be rendered if no `show` or `hide` is set                                            | `undefined`   |
+| `blockClass` | `string` | Block container class. This prop’s set value functions as a block identifier for CSS customizations. | `undefined`   |
 
+### `disclosure-content` props
 
-Remember to also use this Configuration section to  **showcase any necessary disclaimer** related to the app and its blocks, such as the different behavior it may display during its configuration. 
+| Prop Name    | Type     | Description                                                                                          | Default value |
+| ------------ | -------- | ---------------------------------------------------------------------------------------------------- | ------------- |
+| `blockClass` | `string` | Block container class. This prop’s set value functions as a block identifier for CSS customizations. | `undefined`   |
+| `children`   | `Block`  | It's content                                                                                         | `undefined`   |
 
-## Modus Operandi *(not mandatory)*
+### `disclosure-state-indicator` props
 
-There are scenarios in which an app can behave differently in a store, according to how it was added to the catalog, for example. It's crucial to go through these **behavioral changes** in this section, allowing users to fully understand the **practical application** of the app in their store.
+| Prop Name | Type    | Description                                                 | Default value |
+| --------- | ------- | ----------------------------------------------------------- | ------------- |
+| `show`    | `Block` | This block will be rendered when prompt to show the content | `undefined`   |
+| `hide`    | `Block` | This block will be rendered when prompt to hide the content | `undefined`   |
 
-If you feel compelled to give further details about the app, such as it's **relationship with the VTEX admin**, don't hesitate to use this section. 
+### `disclosure-layout-group` props
+
+| Prop Name    | Type   | Description                                                                                                                                                 | Default value |
+| ------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| `maxVisible` | `enum` | Possible values `one` it will render only one child `disclosure-layout` content per group, or `many` to render any number of `disclosure-layout`'s content. | `one`         |
+
+### `disclosure-trigger-group` props
+
+| Prop Name    | Type     | Description                                                                                          | Default value |
+| ------------ | -------- | ---------------------------------------------------------------------------------------------------- | ------------- |
+| `show`       | `Block`  | This block will be rendered when prompt to show the content                                          | `undefined`   |
+| `hide`       | `Block`  | This block will be rendered when prompt to hide the content                                          | `undefined`   |
+| `children`   | `Block`  | This block will be rendered if no `show` or `hide` is set                                            | `undefined`   |
+| `blockClass` | `string` | Block container class. This prop’s set value functions as a block identifier for CSS customizations. | `undefined`   |
 
 ## Customization
 
-The first thing that should be present in this section is the sentence below, showing users the recipe pertaining to CSS customization in apps:
+In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).
 
-`In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).`
-
-Thereafter, you should add a single column table with the available CSS handles for the app, like the one below. Note that the Handles must be ordered alphabetically.
-
-| CSS Handles |
-| ----------- | 
-| `XXXXX` | 
-| `XXXXX` | 
-| `XXXXX` | 
-| `XXXXX` | 
-| `XXXXX` |
-
-
-If there are none, add the following sentence instead:
-
-`No CSS Handles are available yet for the app customization.`
+| CSS Handles             |
+| ----------------------- |
+| `content`               |
+| `content--visible`      |
+| `content--hidden`       |
+| `trigger`               |
+| `trigger--visible`      |
+| `trigger--hidden`       |
+| `triggerGroup`          |
+| `triggerGroup--visible` |
+| `triggerGroup--hidden`  |
 
 <!-- DOCS-IGNORE:start -->
 
@@ -98,17 +183,9 @@ Thanks goes to these wonderful people:
 <!-- markdownlint-disable -->
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
 
 <!-- DOCS-IGNORE:end -->
-
----- 
-
-Check out some documentation models that are already live: 
-- [Breadcrumb](https://github.com/vtex-apps/breadcrumb)
-- [Image](https://vtex.io/docs/components/general/vtex.store-components/image)
-- [Condition Layout](https://vtex.io/docs/components/all/vtex.condition-layout@1.1.6/)
-- [Add To Cart Button](https://vtex.io/docs/components/content-blocks/vtex.add-to-cart-button@0.9.0/)
-- [Store Form](https://vtex.io/docs/components/all/vtex.store-form@0.3.4/)
