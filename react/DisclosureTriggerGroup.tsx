@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react'
+import React, { FC, useMemo, ComponentType } from 'react'
 import {
   DisclosureTriggerGroup,
   DisclosureTriggerGroupProps,
@@ -6,13 +6,16 @@ import {
 } from '@vtex/disclosure'
 import { useCssHandles, applyModifiers } from 'vtex.css-handles'
 
-interface Props extends Omit<DisclosureTriggerGroupProps, 'htmlProps'> {
+interface Props
+  extends Omit<DisclosureTriggerGroupProps, 'htmlProps' | 'show' | 'hide'> {
   blockClass?: string
+  Show?: ComponentType
+  Hide?: ComponentType
 }
 
 const CSS_HANDLES = ['triggerGroup'] as const
 
-const TriggerGroup: FC<Props> = ({ as, show, hide, children }) => {
+const TriggerGroup: FC<Props> = ({ as, Show, Hide, children }) => {
   const handles = useCssHandles(CSS_HANDLES)
   const { state } = useDisclosureGroup()
   const visible = state?.allVisibility
@@ -31,8 +34,8 @@ const TriggerGroup: FC<Props> = ({ as, show, hide, children }) => {
     <DisclosureTriggerGroup
       as={as}
       htmlProps={htmlProps}
-      show={show}
-      hide={hide}
+      show={Show ? <Show /> : undefined}
+      hide={Hide ? <Hide /> : undefined}
     >
       {children}
     </DisclosureTriggerGroup>

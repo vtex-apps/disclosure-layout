@@ -43,6 +43,9 @@ test('trigger group', async () => {
 })
 
 test('trigger with show and hide', async () => {
+  const Show = () => <>SHOW ALL</>
+  const Hide = () => <>HIDE ALL</>
+
   const { getByText } = render(
     <DisclosureLayoutGroup>
       <DisclosureLayout>
@@ -58,7 +61,7 @@ test('trigger with show and hide', async () => {
         <DisclosureContent>Content 3</DisclosureContent>
       </DisclosureLayout>
 
-      <DisclosureTriggerGroup show="SHOW ALL" hide="HIDE ALL" />
+      <DisclosureTriggerGroup Show={Show} Hide={Hide} />
     </DisclosureLayoutGroup>
   )
 
