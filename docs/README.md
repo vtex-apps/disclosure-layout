@@ -61,7 +61,7 @@ Now, you are able to use all the blocks exported by the `disclosure-layout` app.
 }
 ```
 
-### Using group
+### Using `disclosure-layout-group`
 
 ```json
 {
@@ -111,6 +111,19 @@ Now, you are able to use all the blocks exported by the `disclosure-layout` app.
 }
 ```
 
+### Using `disclosure-state-indicator`
+
+```json
+{
+  "disclosure-state-indicator": {
+    "props": {
+      "Show": "icon-angle--down",
+      "Hide": "icon-angle--up"
+    }
+  }
+}
+```
+
 ### `disclosure-layout` props
 
 | Prop name           | Type                  | Description                                                                                                                                                                                     | Default value                                  |
@@ -122,8 +135,9 @@ Now, you are able to use all the blocks exported by the `disclosure-layout` app.
 
 | Prop Name    | Type     | Description                                                                                          | Default value |
 | ------------ | -------- | ---------------------------------------------------------------------------------------------------- | ------------- |
-| `show`       | `Block`  | This block will be rendered when prompt to show the content                                          | `undefined`   |
-| `hide`       | `Block`  | This block will be rendered when prompt to hide the content                                          | `undefined`   |
+| `Show`       | `Block`  | This block will be rendered when prompt to show the content                                          | `undefined`   |
+| `Hide`       | `Block`  | This block will be rendered when prompt to hide the content                                          | `undefined`   |
+| `as`         | `string` | The HTML tag that will be used.                                                                      | `button`      |
 | `children`   | `Block`  | This block will be rendered if no `show` or `hide` is set                                            | `undefined`   |
 | `blockClass` | `string` | Block container class. This prop’s set value functions as a block identifier for CSS customizations. | `undefined`   |
 
@@ -138,8 +152,8 @@ Now, you are able to use all the blocks exported by the `disclosure-layout` app.
 
 | Prop Name | Type    | Description                                                 | Default value |
 | --------- | ------- | ----------------------------------------------------------- | ------------- |
-| `show`    | `Block` | This block will be rendered when prompt to show the content | `undefined`   |
-| `hide`    | `Block` | This block will be rendered when prompt to hide the content | `undefined`   |
+| `Show`    | `Block` | This block will be rendered when prompt to show the content | `undefined`   |
+| `Hide`    | `Block` | This block will be rendered when prompt to hide the content | `undefined`   |
 
 ### `disclosure-layout-group` props
 
@@ -151,8 +165,9 @@ Now, you are able to use all the blocks exported by the `disclosure-layout` app.
 
 | Prop Name    | Type     | Description                                                                                          | Default value |
 | ------------ | -------- | ---------------------------------------------------------------------------------------------------- | ------------- |
-| `show`       | `Block`  | This block will be rendered when prompt to show the content                                          | `undefined`   |
-| `hide`       | `Block`  | This block will be rendered when prompt to hide the content                                          | `undefined`   |
+| `Show`       | `Block`  | This block will be rendered when prompt to show the content                                          | `undefined`   |
+| `Hide`       | `Block`  | This block will be rendered when prompt to hide the content                                          | `undefined`   |
+| `as`         | `string` | The HTML tag that will be used.                                                                      | `button`      |
 | `children`   | `Block`  | This block will be rendered if no `show` or `hide` is set                                            | `undefined`   |
 | `blockClass` | `string` | Block container class. This prop’s set value functions as a block identifier for CSS customizations. | `undefined`   |
 

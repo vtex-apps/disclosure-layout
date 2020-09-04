@@ -28,9 +28,12 @@ test('should change the CSS Handles', async () => {
 })
 
 test('should render hide and show props', async () => {
+  const Show = () => <>Show</>
+  const Hide = () => <>Hide</>
+
   const { getByText } = render(
     <DisclosureLayout>
-      <DisclosureTrigger show="Show" hide="Hide" />
+      <DisclosureTrigger Show={Show} Hide={Hide} />
       <DisclosureContent>Content</DisclosureContent>
     </DisclosureLayout>
   )
