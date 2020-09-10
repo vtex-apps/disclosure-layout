@@ -10,7 +10,8 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- DOCS-IGNORE:end -->
 
-![Media Placeholder](https://user-images.githubusercontent.com/52087100/71204177-42ca4f80-227e-11ea-89e6-e92e65370c69.png)
+![Disclosure Example](https://user-images.githubusercontent.com/284515/92785797-17444380-f37e-11ea-9f68-0a7c2631c7bb.gif)
+[Check example](https://github.com/vtex-apps/store-theme/pull/226)
 
 ## Configuration
 
