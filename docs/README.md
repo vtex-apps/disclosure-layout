@@ -145,7 +145,7 @@ According to your desire, copy one of the examples stated below and paste it in 
 | `Show`       | `block`  | Name of the block that will be rendered when prompt to show the content. | `undefined`   |
 | `Hide`       | `block`  | Name of the block that will be rendred when prompt to hide the content.    | `undefined`   |
 | `as`         | `string` | HTML tag to be applied to the component when it is rendered on the UI. | `button`      |
-| `children`   | `block`  | Name of the block that will be rendered in case no blocks are declared in the `show` or `hide` props. | `undefined`   |
+| `children`   | `block`  | Name of the block that will be rendered in case no blocks are declared in the `Show` or `Hide` props. | `undefined`   |
 | `blockClass` | `string` | Block ID of your choosing to be used in [CSS customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property). | `undefined`   |
 
 #### `disclosure-content` props
