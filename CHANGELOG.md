@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.2] - 2020-09-10
 
 ### Fixed
+- README.md file (app documentation).
+
+### Fixed
 
 - Add media to docs.
 
