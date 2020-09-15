@@ -153,7 +153,7 @@ According to your desire, copy one of the examples stated below and paste it in 
 | Prop Name    | Type     | Description                                                                                          | Default value |
 | ------------ | -------- | ---------------------------------------------------------------------------------------------------- | ------------- |
 | `blockClass` | `string` | Block ID of your choosing to be used in [CSS customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property). | `undefined`   |
-| `children`   | `block`  | Name of the block that will render the desired disclosure content. | `undefined`   |
+| `children`   | `[block]`  | List of blocks that will render the desired disclosure content. | `undefined`   |
 
 #### `disclosure-state-indicator` props
 
