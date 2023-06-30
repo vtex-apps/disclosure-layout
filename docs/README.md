@@ -10,16 +10,15 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- DOCS-IGNORE:end -->
 
-The Disclosure Layout is an app responsible for creating a layout structure based on disclosure indicators.
+The Disclosure Layout app creates a layout structure based on disclosure indicators.
 
-![Disclosure Example](https://user-images.githubusercontent.com/284515/92785797-17444380-f37e-11ea-9f68-0a7c2631c7bb.gif)
-[Check example](https://github.com/vtex-apps/store-theme/pull/226)
+![Disclosure Example](https://cdn.jsdelivr.net/gh/vtexdocs/dev-portal-content@main/images/vtex-disclosure-layout-0.gif) [Check this example](https://github.com/vtex-apps/store-theme/pull/226)
 
 ## Configuration
 
-### Step 1 - Adding the Disclosure Layout app to your theme's dependencies
+### Step 1 - Adding the Disclosure Layout app to your theme dependencies
 
-In your theme's `manifest.json` file, add the Disclosure Layout app as a dependency:
+In the `manifest.json` file of your theme, add the Disclosure Layout app as a dependency:
 
 ```diff
   "dependencies": {
@@ -27,20 +26,20 @@ In your theme's `manifest.json` file, add the Disclosure Layout app as a depende
   }
 ```
 
-Now, you are able to use all the blocks exported by the `disclosure-layout` app. Check out the full list below:
+Now, you can use all the blocks exported by the `disclosure-layout` app. See the full list below:
 
-| Block name                   | Description                                                                                                                                                                                                                                                  |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `disclosure-layout`          | ![https://img.shields.io/badge/-Mandatory-red](https://img.shields.io/badge/-Mandatory-red) Parent block that enables you to build the disclosure layout using its 3 children blocks: `disclosure-trigger`, `disclosure-content`, and `disclosure-state-indicator`. |
-| `disclosure-trigger`         | Declares the blocks that will be rendered as disclosure triggers i.e. the blocks that when clicked on will open or close the disclosure content (defined by the `disclosure-content` block). |
-| `disclosure-content`         | Declares the blocks that are responsible for displaying the desired content when the disclosure trigger is clicked on. |
-| `disclosure-state-indicator` | Optional block responsible for rendering chevron or other UI elements that change when the disclosure is opened or closed.  |
-| `disclosure-layout-group`    | Wraps many `disclosure-layouts` blocks at once. You may use this block to control when each one of them should be displayed, making it possible to have only one `disclosure-layout` open at a time. |
-| `disclosure-trigger-group`   | Wraps many `disclosure-trigger` blocks at once. You may use this block to control when and how the `disclosure-layouts` blocks declared inside the `disclosure-layout-group` should be displayed. |
+| Block name | Description |
+| - | - |
+| `disclosure-layout` | ![https://img.shields.io/badge/-Mandatory-red](https://img.shields.io/badge/-Mandatory-red) Parent block that enables you to build the disclosure layout using its three children blocks: `disclosure-trigger`, `disclosure-content`, and `disclosure-state-indicator`. |
+| `disclosure-trigger` | Declares the blocks that will be rendered as disclosure triggers, i.e., the blocks that, when clicked, will open or close the disclosure content (defined by the `disclosure-content` block). |
+| `disclosure-content` | Declares the blocks displaying the desired content when the disclosure trigger is clicked. |
+| `disclosure-state-indicator` | Optional block that renders the chevron or other UI elements that change when the disclosure is opened or closed. |
+| `disclosure-layout-group` | Wraps many `disclosure-layouts` blocks at once. You can use this block to control when each should be displayed, allowing only one `disclosure-layout` open at a time. |
+| `disclosure-trigger-group` | Wraps many `disclosure-trigger` blocks at once. You can use this block to control when and how the `disclosure-layouts` blocks declared inside the `disclosure-layout-group` should be displayed. |
 
-### Step 2 - Adding the Disclosure Layout' blocks to your theme's templates
+### Step 2 - Adding the Disclosure Layout blocks to your theme templates
 
-According to your desire, copy one of the examples stated below and paste it in your theme's desired template, making the necessary changes. Remember to add the `disclosure-layout`block to the template's block list if needed.
+Copy one of the examples below and paste it into your desired theme template, changing as necessary. If needed, add the `disclosure-layout` block to the block list of the template.
 
 - Simple example:
 
@@ -62,7 +61,7 @@ According to your desire, copy one of the examples stated below and paste it in 
   },
   "rich-text#answer": {
     "props": {
-      "text": "Call us at the number (212) 1234-1234"
+      "text": "Call us at (212) 123-1234"
     }
   }
 }
@@ -92,7 +91,7 @@ According to your desire, copy one of the examples stated below and paste it in 
   },
   "rich-text#answer1": {
     "props": {
-      "text": "Call us at the number (212) 1234-1234."
+      "text": "Call us at (212) 123-1234."
     }
   },
 
@@ -112,7 +111,7 @@ According to your desire, copy one of the examples stated below and paste it in 
   },
   "rich-text#answer2": {
     "props": {
-      "text": "After logging into your account, you can find this info at the link Orders."
+      "text": "After logging in to your account, you can find this information in the Orders link."
     }
   }
 }
@@ -133,56 +132,56 @@ According to your desire, copy one of the examples stated below and paste it in 
 
 #### `disclosure-layout` props
 
-| Prop name           | Type                  | Description                                                                                                                                                                                     | Default value                                  |
-| ------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| `initialVisibility` | `enum`                | Defines the initial visibility of the layout content. Possible values are: `visible` (content initially open) or `hidden` (content is only displayed with user interaction).    | `hidden`   |
-| `animated`          | `boolean` | Whether or not the layout content should have animations. When set as `true`, this prop will enable additional `data-\*` attributes on the content which you can use as selectors in CSS. It will also ensure that the element will get hidden once the transition has ended. | `false` |
+| Prop name | Type | Description | Default value |
+| - | - | - | - |
+| `initialVisibility` | `enum` | Defines the initial visibility of the layout content. Possible values are: `visible` (content initially open) or `hidden` (content is only displayed with user interaction). | `hidden` |
+| `animated` | `boolean` | Defines if the layout content should have animations. When set as `true`, this prop will enable additional `data-\*` attributes on the content, which you can use as selectors in CSS. It will also ensure that the element will be hidden once the transition has ended. | `false` |
 
 #### `disclosure-trigger` props
 
-| Prop Name    | Type     | Description                                                                                          | Default value |
-| ------------ | -------- | ---------------------------------------------------------------------------------------------------- | ------------- |
-| `Show`       | `block`  | Name of the block that will be rendered when prompt to show the content. | `undefined`   |
-| `Hide`       | `block`  | Name of the block that will be rendered when prompt to hide the content.    | `undefined`   |
-| `as`         | `string` | HTML tag to be applied to the component when it is rendered on the UI. | `button`      |
-| `children`   | `block`  | Name of the block that will be rendered in case no blocks are declared in the `Show` or `Hide` props. | `undefined`   |
-| `blockClass` | `string` | Block ID of your choosing to be used in [CSS customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property). | `undefined`   |
+| Prop name | Type | Description | Default value |
+| - | - | - | - |
+| `Show` | `block` | Name of the block that will be rendered when prompted to show the content. | `undefined` |
+| `Hide` | `block` | Name of the block that will be rendered when prompted to hide the content. | `undefined` |
+| `as` | `string` | HTML tag to be applied to the component when rendered on the UI. | `button` |
+| `children` | `block`  | Name of the block that will be rendered if no blocks are declared in the `Show` or `Hide` props. | `undefined` |
+| `blockClass` | `string` | Block ID defined by you that will be used in [CSS customizations](https://developers.vtex.com/docs/guides/vtex-io-documentation-using-css-handles-for-store-customization#using-the-blockclass-property). | `undefined` |
 
 #### `disclosure-content` props
 
-| Prop Name    | Type     | Description                                                                                          | Default value |
-| ------------ | -------- | ---------------------------------------------------------------------------------------------------- | ------------- |
-| `blockClass` | `string` | Block ID of your choosing to be used in [CSS customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property). | `undefined`   |
-| `children`   | `[block]`  | List of blocks that will render the desired disclosure content. | `undefined`   |
+| Prop name | Type | Description | Default value |
+| - | - | - | - |
+| `blockClass` | `string` | Block ID defined by you that will be used in [CSS customizations](https://developers.vtex.com/docs/guides/vtex-io-documentation-using-css-handles-for-store-customization#using-the-blockclass-property). | `undefined` |
+| `children`   | `[block]` | List of blocks that will render the desired disclosure content. | `undefined` |
 
 #### `disclosure-state-indicator` props
 
-| Prop Name | Type    | Description                                                 | Default value |
-| --------- | ------- | ----------------------------------------------------------- | ------------- |
-| `Show`    | `block` | Name of the block that will be rendered when prompt to show the content. | `undefined`   |
-| `Hide`    | `block` | Name of the block that will be rendered when prompt to hide the content. | `undefined`   |
+| Prop name | Type | Description | Default value |
+| - | - | - | - |
+| `Show` | `block` | Name of the block that will be rendered when prompted to show the content. | `undefined` |
+| `Hide` | `block` | Name of the block that will be rendered when prompted to hide the content. | `undefined` |
 
 #### `disclosure-layout-group` props
 
-| Prop Name    | Type   | Description                                                                                                                                                 | Default value |
-| ------------ | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `maxVisible` | `enum` | Defines how many `disclosure-layout` blocks should be displayed at time. Possible values are: `one` (only one `disclosure-layout` block should have its content displayed at time) or `many` (different `disclosure-layout`'s contents can be displayed at time). | `one`  | 
+| Prop name | Type | Description | Default value |
+| - | - | - | - |
+| `maxVisible` | `enum` | Defines how many `disclosure-layout` blocks should be displayed at a time. Possible values are: `one` (only one `disclosure-layout` block should have its content displayed at time) or `many` (different `disclosure-layout` block content can be displayed at time). | `one` |
 
 #### `disclosure-trigger-group` props
 
-| Prop Name    | Type     | Description                                                                                          | Default value |
-| ------------ | -------- | ---------------------------------------------------------------------------------------------------- | ------------- |
-| `Show`       | `block`  | Name of the block that will be rendered when prompt to show the content.            | `undefined`   |
-| `Hide`       | `block`  | Name of the block that will be rendered when prompt to hide the content.            | `undefined`   |
-| `as`         | `string` | HTML tag to be applied to the component when it is rendered on the UI.              | `button`      |
-| `children`   | `block`  | Name of the block that will be rendered in case no blocks are declared in the `Show` or `Hide` props.           | `undefined`   |
-| `blockClass` | `string` | Block ID of your choosing to be used in [CSS customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property). | `undefined`   |
+| Prop name | Type | Description | Default value |
+| - | - | - | - |
+| `Show` | `block`  | Name of the block that will be rendered when prompted to show the content. | `undefined` |
+| `Hide` | `block`  | Name of the block that will be rendered when prompted to hide the content. | `undefined` |
+| `as` | `string` | HTML tag to be applied to the component when rendered on the UI. | `button`      |
+| `children` | `block`  | Name of the block that will be rendered if no blocks are declared in the `Show` or `Hide` props. | `undefined` |
+| `blockClass` | `string` | Block ID defined by you that will be used in [CSS customizations](https://developers.vtex.com/docs/guides/vtex-io-documentation-using-css-handles-for-store-customization#using-the-blockclass-property). | `undefined` |
 
 ## Customization
 
-In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).
+To apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS handles for store customization](https://developers.vtex.com/docs/guides/vtex-io-documentation-using-css-handles-for-store-customization).
 
-| CSS Handles             |
+| CSS handles             |
 | ----------------------- |
 | `content`               |
 | `content--visible`      |
